@@ -8,22 +8,22 @@ defaults: &defaults
 development:
   <<: *defaults
   database: siemens_development
-  username: diplom
-  password: diplompassword
+  username: 
+  password: 
 
 test:
   <<: *defaults
   database: siemens_test
-  username: diplom
-  password: diplompassword
+  username: 
+  password: 
 
 production:
   <<: *defaults
   database: siemenscollection
-  username: diplom
-  password: diplompassword
+  username: 
+  password: 
 
 staging:
   <<: *defaults
   database: siemens_stage
-  username: diplom
+  username: 
