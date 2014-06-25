@@ -1,0 +1,16 @@
+<h3>Phones</h3>
+
+<table>
+
+  <tbody>
+    <% @phones.each do |phone| %>
+      <tr>
+        <td><%= link_to phone.name, phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phone', new_phone_path %>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h3>
+  <%= @phone.name %>
+</h3>
+
+<img src="<%= @phone.photo_url %>" class="phone_image">
+
+<p>
+  <strong>Network:</strong>
+  <%= @phone.network %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @phone.features %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @phone.weight %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @phone.size %>
+</p>
+
+<p>
+  <strong>Akkum:</strong>
+  <%= @phone.akkum %>
+</p>
+
+<p>
+  <strong>Limited:</strong>
+  <%= @phone.limited %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @phone.notes %>
+</p>
+
+<%= link_to 'Edit', edit_phone_path(@phone) %> |
+<%= link_to 'Back', phones_path %>

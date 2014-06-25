@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Siemenscollection</title>
+  <title>Siemens Collection</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <h4>Siemens Collection</h4>
+  </header>
 
-<%= yield %>
-
+  <div id="content">
+    <%= yield %>
+  </div>
 </body>
 </html>
