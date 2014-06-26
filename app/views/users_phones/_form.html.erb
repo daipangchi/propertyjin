@@ -1,0 +1,40 @@
+<%= simple_form_for @users_phone, url: @users_phone.new_record? ? user_users_phones_path(current_user) : user_users_phone_path(current_user, @users_phone), html: { class: 'form-horizontal' },
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    file: :horizontal_file_input,
+    boolean: :horizontal_boolean
+  } do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+    <%= f.association :phone, label: "Phone", label_method: :name %>
+    <%= f.input :condition, label: "Condition (of 10)" %>
+    <%= f.input :date %>
+    <%= f.input :imei, label: "IMEI" %>
+    <%= f.input :sw, label: "SW" %>
+    <%= f.input :menu_lang, label: "Menu language" %>
+    <%= f.input :keyboard_lang, label: "Keyboard language" %>
+    <%= f.input :made_in %>
+    <%= f.input :calls_time %>
+    <%= f.input :phone_type, collection: ["Series edition", "Limited edition", "Not for sale"], include_blank: false, selected: "Series edition", as: :select, label: "Type" %>
+    <%= f.input :notes %>
+
+    <%= f.input :box, label: "Have box" %>
+    <%= f.input :box_imei, label: "IMEI on box is identical" %>
+    <%= f.input :charger, label: "Have charger(+charger type)" %>
+    <%= f.input :sim, label: "With sim" %>
+    <%= f.input :usb, label: "Have USB" %>
+    <%= f.input :cradle, label: "Have cradle" %>
+    <%= f.input :another_staff %>
+    <%= f.input :selling, label: "Can be sold" %>
+
+    <%= link_to "Back", @users_phone.new_record? ? user_users_phones_path(current_user) : user_users_phone_path(current_user, @users_phone), method: "get", class: "btn btn-default" %>
+    <%= link_to "Remove", user_users_phone_path(current_user, @users_phone), method: "delete", confirm: "Are you sure?", class: "btn btn-warning" unless @users_phone.new_record?  %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+      <i class="icon-ok icon-white"></i> Save
+    <% end %>
+
+  </fieldset>
+<% end %>

@@ -18,4 +18,6 @@
 #
 
 class Phone < ActiveRecord::Base
+  has_many :users_phones
+  has_many :owners, through: :users_phones, source: :user
 end

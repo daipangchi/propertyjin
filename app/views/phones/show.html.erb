@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-
+<%= link_to 'Back to phones list', phones_path %>
 
 <h3>
   <%= @phone.name %>
+  <%= link_to edit_phone_path(@phone) do %>
+    <span class="glyphicon glyphicon-edit"></span>
+  <% end %>
 </h3>
 
 <img src="<%= @phone.photo_url %>" class="phone_image">
@@ -43,5 +44,6 @@
   <%= @phone.notes %>
 </p>
 
-<%= link_to 'Edit', edit_phone_path(@phone) %> |
-<%= link_to 'Back', phones_path %>
+<%= link_to 'Add to collection', new_user_users_phones_path(user_id: current_user.id, phone_id: @phone.id) %><br><br>
+
+<%= link_to 'Edit', edit_phone_path(@phone) %>

@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+
+  # resources :users_phones, except: [:new, :index] do
+  #   get 'new/(:phone_id)' => 'users_phones#new', on: :collection, as: :new
+  # end
+
+  # get 'users/:user_id/phones' => 'users_phones#index', as: :user_phones
+
   resources :phones
 
   devise_for :users
+
+  resources :users, only: :none do
+    resources :users_phones, except: [:new], path: "phones" do
+      get 'new/(:phone_id)' => 'users_phones#new', on: :collection, as: :new
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

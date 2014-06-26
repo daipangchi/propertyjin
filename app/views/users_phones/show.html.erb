@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= link_to @users_phone.phone.name, phone_path(@users_phone.phone) %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @users_phone.condition %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @users_phone.date %>
+</p>
+
+<p>
+  <strong>Imei:</strong>
+  <%= @users_phone.imei %>
+</p>
+
+<p>
+  <strong>Sw:</strong>
+  <%= @users_phone.sw %>
+</p>
+
+<p>
+  <strong>Menu lang:</strong>
+  <%= @users_phone.menu_lang %>
+</p>
+
+<p>
+  <strong>Keyboard lang:</strong>
+  <%= @users_phone.keyboard_lang %>
+</p>
+
+<p>
+  <strong>Made in:</strong>
+  <%= @users_phone.made_in %>
+</p>
+
+<p>
+  <strong>Calls time:</strong>
+  <%= @users_phone.calls_time %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @users_phone.phone_type %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @users_phone.notes %>
+</p>
+
+<p>
+  <strong>Box:</strong>
+  <%= @users_phone.box %>
+</p>
+
+<p>
+  <strong>Box imei:</strong>
+  <%= @users_phone.box_imei %>
+</p>
+
+<p>
+  <strong>Charger:</strong>
+  <%= @users_phone.charger %>
+</p>
+
+<p>
+  <strong>Sim:</strong>
+  <%= @users_phone.sim %>
+</p>
+
+<p>
+  <strong>Usb:</strong>
+  <%= @users_phone.usb %>
+</p>
+
+<p>
+  <strong>Cradle:</strong>
+  <%= @users_phone.cradle %>
+</p>
+
+<p>
+  <strong>Another staff:</strong>
+  <%= @users_phone.another_staff %>
+</p>
+
+<p>
+  <strong>Selling:</strong>
+  <%= @users_phone.selling %>
+</p>
+
+<%= link_to 'Edit', edit_user_users_phone_path(current_user, @users_phone) %> |
+<%= link_to 'Back', user_users_phones_path(current_user) %>

@@ -1,0 +1,28 @@
+<h3>Collection of <%= current_user.email %></h3>
+
+<table>
+  <thead>
+    <tr>
+      
+      <th>Phone</th>
+      <th>Condition</th>
+      <th>Type</th>
+      <th>Selling</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_phones.each do |users_phone| %>
+      <tr>
+        <td><%= link_to users_phone.phone.name, user_users_phone_path(current_user, users_phone) %></td>
+        <td><%= users_phone.condition %></td>
+        <td><%= users_phone.phone_type %></td>
+        <td><%= users_phone.selling %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Users phone', new_user_users_phones_path(current_user) %>
