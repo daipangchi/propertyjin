@@ -17,7 +17,7 @@ set :keep_releases, 10
 set :rvm_path, '/usr/local/rvm/scripts/rvm'
 
 task :environment do
-  invoke 'rvm:use[ruby-2.1.1@rails404]'
+  invoke 'rvm:use[ruby-2.1.1@rails411]'
 end
 
 #delay. Setup task
