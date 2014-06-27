@@ -12,7 +12,7 @@ set :deploy_to, "/home/#{user}/siemenscollection/#{rails_env}"
 set :app_path, "#{deploy_to}/#{current_path}"
 set :repository, 'git@github.com:AvaelKross/siemenscollection.git'
 set :branch, 'master'
-set :shared_paths, ['config/database.yml', 'tmp']
+set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'tmp']
 set :keep_releases, 10
 set :rvm_path, '/usr/local/rvm/scripts/rvm'
 
@@ -34,7 +34,7 @@ namespace :unicorn do
   set :unicorn_pid, "#{app_path}/tmp/pids/unicorn.pid"
   set :start_unicorn, %{
 cd #{app_path}
-bundle exec unicorn -c /home/#{user}/siemenscollection/production/config/unicorn.rb -E production -D
+bundle exec unicorn -c #{app_path}/config/unicorn.rb -E production -D
 }
 
 # Start task
