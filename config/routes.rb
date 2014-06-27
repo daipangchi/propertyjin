@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: :none do
+    get 'collections' => 'users_phones#collections_list', on: :collection, as: :collections_list
     resources :users_phones, except: [:new], path: "phones" do
       get 'new/(:phone_id)' => 'users_phones#new', on: :collection, as: :new
     end

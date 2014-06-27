@@ -7,6 +7,10 @@ class UsersPhonesController < ApplicationController
     @users_phones = UsersPhone.all
   end
 
+  def collections_list
+    @users = User.all
+  end
+
   # GET /users_phones/1
   def show
   end
@@ -27,7 +31,7 @@ class UsersPhonesController < ApplicationController
     @users_phone.user_id = current_user.id
 
     if @users_phone.save
-      redirect_to @users_phone, notice: 'Users phone was successfully created.'
+      redirect_to user_users_phone_path(current_user, @users_phone), notice: 'Users phone was successfully created.'
     else
       render :new
     end
@@ -36,7 +40,7 @@ class UsersPhonesController < ApplicationController
   # PATCH/PUT /users_phones/1
   def update
     if @users_phone.update(users_phone_params)
-      redirect_to @users_phone, notice: 'Users phone was successfully updated.'
+      redirect_to user_users_phone_path(current_user, @users_phone), notice: 'Users phone was successfully updated.'
     else
       render :edit
     end
@@ -45,7 +49,7 @@ class UsersPhonesController < ApplicationController
   # DELETE /users_phones/1
   def destroy
     @users_phone.destroy
-    redirect_to users_phones_url, notice: 'Users phone was successfully destroyed.'
+    redirect_to user_users_phones_url(current_user), notice: 'Users phone was successfully destroyed.'
   end
 
   private
@@ -55,7 +59,7 @@ class UsersPhonesController < ApplicationController
     end
 
     def set_user
-      
+
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -9,7 +9,10 @@
 <body>
   <header>
     <div class="left">
-      <h4><%= link_to "Siemens Collection", root_path %></h4>
+      <h4 class="left"><%= link_to "Siemens Collection", root_path %></h4>
+      <div class="menu left">
+        <%= link_to "collections list", collections_list_users_path %>
+      </div>
     </div>
     <div class="right">
       <% if signed_in? %>

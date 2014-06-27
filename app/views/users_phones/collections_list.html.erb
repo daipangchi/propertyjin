@@ -1,0 +1,8 @@
+Collections:
+<ul>
+<% @users.each do |user| %>
+  <li>
+    <%= link_to "#{user.email} (#{user.phones.count} phones)", user_users_phones_path(user) %>
+  </li>
+<% end %>
+</ul>

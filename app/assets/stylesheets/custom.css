@@ -27,5 +27,10 @@ header {
 }
 
 header .right {
-  padding-top:12px;
+  padding-top: 12px;
+}
+
+.menu {
+  padding-left: 50px;
+  padding-top: 12px;
 }
