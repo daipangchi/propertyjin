@@ -7,8 +7,8 @@ listen             '127.0.0.1:8080'
 user               'apps', 'apps'
 working_directory  app_path
 pid                "#{app_path}/tmp/pids/unicorn.pid"
-stderr_path        "log/unicorn.err.log"
-stdout_path        "log/unicorn.out.log"
+stderr_path        "/home/apps/siemenscollection/log/unicorn.err.log"
+stdout_path        "/home/apps/siemenscollection/log/unicorn.out.log"
 
 before_fork do |server, worker|
   ActiveRecord::Base.connection.disconnect!
