@@ -1,4 +1,4 @@
-<h3>Collection of <%= current_user.email %></h3>
+<h3>Collection of <%= @user.email %></h3>
 
 <table>
   <thead>
@@ -14,7 +14,7 @@
   <tbody>
     <% @users_phones.each do |users_phone| %>
       <tr>
-        <td><%= link_to users_phone.phone.name, user_users_phone_path(current_user, users_phone) %></td>
+        <td><%= link_to users_phone.phone.name, user_users_phone_path(@user, users_phone) %></td>
         <td><%= users_phone.condition %></td>
         <td><%= users_phone.phone_type %></td>
         <td><%= users_phone.selling %></td>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Users phone', new_user_users_phones_path(current_user) %>
+<%= link_to 'New Users phone', new_user_users_phones_path(current_user) if @user==current_user %>

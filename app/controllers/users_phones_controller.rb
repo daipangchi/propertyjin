@@ -1,10 +1,10 @@
 class UsersPhonesController < ApplicationController
   before_action :set_users_phone, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:index]
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /users_phones
   def index
-    @users_phones = UsersPhone.all
+    @users_phones = user.phones
   end
 
   def collections_list
@@ -58,9 +58,10 @@ class UsersPhonesController < ApplicationController
       @users_phone = UsersPhone.find(params[:id])
     end
 
-    def set_user
-
+    def user
+      @user ||= User.find(params[:user_id])
     end
+    alias_method :set_user, :user
 
     # Only allow a trusted parameter "white list" through.
     def users_phone_params
