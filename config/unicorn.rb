@@ -1,5 +1,4 @@
 app_path = "/home/apps/siemenscollection/production/current"
-rails_env = ENV['RAILS_ENV'] || 'production'
 
 worker_processes   1
 preload_app        true
@@ -8,8 +7,8 @@ listen             '127.0.0.1:8080'
 user               'apps', 'apps'
 working_directory  app_path
 pid                "#{app_path}/tmp/pids/unicorn.pid"
-stderr_path        "#{app_path}/log/unicorn.err.log"
-stdout_path        "#{app_path}/log/unicorn.out.log"
+stderr_path        "log/unicorn.err.log"
+stdout_path        "log/unicorn.out.log"
 
 before_fork do |server, worker|
   ActiveRecord::Base.connection.disconnect!
