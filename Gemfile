@@ -32,6 +32,8 @@ gem 'devise'
 # Add slug to models and use it
 gem 'friendly_id', '~> 5.0.0'
 
+gem "paperclip", "~> 4.1"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
