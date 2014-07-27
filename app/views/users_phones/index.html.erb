@@ -1,23 +1,25 @@
 <h3>Collection of <%= @user.email %></h3>
 
-<table>
+<table id="user_phones_list">
   <thead>
     <tr>
-      
-      <th>Phone</th>
-      <th>Condition</th>
-      <th>Type</th>
-      <th>Selling</th>
+      <th class="sort" data-sort="phone">Phone</th>
+      <th class="sort" data-sort="condition">Condition</th>
+      <th class="sort" data-sort="type">Type</th>
+      <th class="sort" data-sort="selling">Selling</th>
+      <th colspan="2">
+        <input type="text" class="search" placeholder="Search phone" />
+      </th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="list">
     <% @users_phones.each do |users_phone| %>
       <tr>
-        <td><%= link_to users_phone.phone.name, user_users_phone_path(@user, users_phone) %></td>
-        <td><%= users_phone.condition %></td>
-        <td><%= users_phone.phone_type %></td>
-        <td><%= users_phone.selling %></td>
+        <td class="phone"><%= link_to users_phone.phone.name, user_users_phone_path(@user, users_phone) %></td>
+        <td class="condition"><%= users_phone.condition %></td>
+        <td class="type"><%= users_phone.phone_type %></td>
+        <td class="selling"><%= users_phone.selling %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,15 +1,19 @@
 <h3>Phones</h3>
 
-<table>
+<div id="phones_list">
+  <input class="search" placeholder="Search" />
+  <button class="sort" data-sort="name">
+    Sort by name
+  </button>
 
-  <tbody>
+  <ul class="list">
     <% @phones.each do |phone| %>
-      <tr>
-        <td><%= link_to phone.name, phone %></td>
-      </tr>
+      <li>
+        <p class="name"><%= link_to phone.name, phone %></p>
+      </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
 
 <br>
 
