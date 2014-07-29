@@ -31,7 +31,5 @@ class UsersPhone < ActiveRecord::Base
   belongs_to :user
   belongs_to :phone
 
-  def pictures
-    UserPhonePicture.where(user_phone_id: self.id).map {|pic| pic.picture}
-  end
+  has_many :pictures, as: :imageable
 end

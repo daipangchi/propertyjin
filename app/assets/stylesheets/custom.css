@@ -13,11 +13,6 @@ header {
   padding:10px;
 }
 
-.phone_image {
-  max-width: 200px;
-  max-height: 200px;
-}
-
 .left {
   float:left;
 }
@@ -33,4 +28,20 @@ header .right {
 .menu {
   padding-left: 50px;
   padding-top: 12px;
+}
+
+.gallery {
+  background-color: #eee;
+  padding: 3px;
+  border: 1px solid #aaa;
+}
+
+.gallery-wrapper {
+  margin:10px 0px;
+  width: 100%;
+}
+
+.fancybox img{
+  max-width: 140px;
+  max-height: 140px;
 }

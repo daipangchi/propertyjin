@@ -34,6 +34,7 @@ gem 'devise'
 gem 'friendly_id', '~> 5.0.0'
 
 gem "paperclip", "~> 4.1"
+gem 'jquery-fileupload-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -48,6 +49,18 @@ end
 group :production do
   gem 'unicorn', '4.8.2'
   gem 'archive-zip'
+end
+
+group :development, :test do
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'timecop'
+  gem 'guard-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
 end
 
 # Use ActiveModel has_secure_password

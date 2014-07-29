@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :user_phone_pictures
-
   # resources :users_phones, except: [:new, :index] do
   #   get 'new/(:phone_id)' => 'users_phones#new', on: :collection, as: :new
   # end
@@ -16,6 +14,7 @@ Rails.application.routes.draw do
     get 'collections' => 'users_phones#collections_list', on: :collection, as: :collections_list
     resources :users_phones, except: [:new], path: "phones" do
       get 'new/(:phone_id)' => 'users_phones#new', on: :collection, as: :new
+      resources :pictures, only: [:create, :destroy]
     end
   end
 

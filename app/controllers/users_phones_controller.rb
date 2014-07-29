@@ -13,6 +13,7 @@ class UsersPhonesController < ApplicationController
 
   # GET /users_phones/1
   def show
+    @pictures = @users_phone.pictures
   end
 
   # GET /users_phones/new

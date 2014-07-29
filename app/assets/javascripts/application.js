@@ -13,7 +13,12 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.fancybox.pack
+//= require jquery-fileupload/vendor/jquery.ui.widget
+//= require jquery-fileupload/jquery.iframe-transport
+//= require jquery-fileupload/jquery.fileupload
 //= require list.min
 //= require custom
 //= require bootstrap.min
 //= require turbolinks
+//= require_tree .
