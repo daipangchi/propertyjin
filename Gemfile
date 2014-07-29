@@ -59,8 +59,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'timecop'
-  gem 'guard-rspec'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
 end
 
 # Use ActiveModel has_secure_password
