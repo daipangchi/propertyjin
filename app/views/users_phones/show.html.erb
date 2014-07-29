@@ -93,8 +93,9 @@
 
 <div class="gallery-wrapper"><div class="gallery"><%= render @pictures %></div></div>
 
-<input id="fileupload" type="file" name="picture[uploaded_file]" data-url="<%= user_users_phone_pictures_path(users_phone_id: @users_phone.id) %>" multiple/>
+<% if current_user == @user %>
+  <input id="fileupload" type="file" name="picture[uploaded_file]" data-url="<%= user_users_phone_pictures_path(users_phone_id: @users_phone.id) %>" multiple/>
 
-
-<%= link_to 'Edit', edit_user_users_phone_path(@user, @users_phone) if current_user==@user %> |
+  <%= link_to 'Edit', edit_user_users_phone_path(@user, @users_phone) %> |
+<% end %>
 <%= link_to 'Back', user_users_phones_path(@user) %>

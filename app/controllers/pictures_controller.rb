@@ -7,7 +7,6 @@ class PicturesController < ApplicationController
     @picture.picture = params[:picture][:uploaded_file]
     @picture.imageable = parent
     if @picture.save
-      # render json: {success: true, pic_thumb: @picture.picture.url(:thumb), pic_full: @picture.picture.url(:original)}
       render json: {success: true, html: render_to_string(@picture)}
     else
       render json: {success: false}
@@ -17,15 +16,14 @@ class PicturesController < ApplicationController
   # DELETE /pictures/1
   def destroy
     @picture.destroy
+    render json: {success: true}
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_picture
       @picture = Picture.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def picture_params
       params.require(:picture).permit(:uploaded_file)
     end

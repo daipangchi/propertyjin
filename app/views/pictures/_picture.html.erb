@@ -1,3 +1,4 @@
-<a class="fancybox" rel='users-phones-gallery' href="<%= picture.url(:original) %>" title="qwe">
-  <%= image_tag picture.url(:thumb) %>
-</a>
+<span  data-pictureid="<%= picture.id %>"><a class="fancybox" rel='users-phones-gallery' href="<%= picture.url(:original) %>" title="">
+  <%= image_tag picture.url(:thumb) %></a>
+  <% if picture.imageable.user == current_user %><a class="remove_picture" data-url="<%= user_users_phone_picture_path(users_phone_id: picture.imageable_id, id: picture.id) %>">[X]</a><% end %>
+</span>
