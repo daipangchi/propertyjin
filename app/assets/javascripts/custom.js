@@ -16,8 +16,12 @@ $( document ).ready(function(){
 
   $('#fileupload').fileupload({
         dataType: 'json',
+        beforeSend: function(){
+          $(".gallery").append("<span class='image-placeholder'>Loading...</span>")
+        },
         done: function (e, data) {
             res = data.result
+            $(".image-placeholder").last().remove();
             $( ".gallery" ).append( res.html );
         }
     });

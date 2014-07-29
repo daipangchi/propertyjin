@@ -45,3 +45,13 @@ header .right {
   max-width: 140px;
   max-height: 140px;
 }
+
+.gallery a:hover, .fancybox-wrap a:hover{
+  background-color: transparent;
+}
+
+.image-placeholder{
+  width: 140px;
+  height: 140px;
+  text-align: center;
+}
