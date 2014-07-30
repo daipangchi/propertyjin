@@ -3,7 +3,7 @@ class PhonesController < ApplicationController
 
   # GET /phones
   def index
-    @phones = Phone.all
+    @phones = Phone.all.order(:created_at)
   end
 
   # GET /phones/1
