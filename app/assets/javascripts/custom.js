@@ -14,19 +14,9 @@ $( document ).ready(function(){
     }    
   });
 
-  $('#fileupload').fileupload({
-    dataType: 'json',
-    beforeSend: function(){
-      $(".gallery").append("<span class='image-placeholder'>Loading...</span>")
-    },
-    done: function (e, data) {
-      res = data.result
-      $(".image-placeholder").last().remove();
-      $( ".gallery" ).append( res.html );
-    }
-  });
+  //Pic management
 
-  $(".remove_picture").on("click", function(){
+  function remove_picture(){
     var parent = $(this).parent();
     var id = parent.data('pictureid');
     var url = $(this).data('url');
@@ -37,7 +27,23 @@ $( document ).ready(function(){
         parent.remove();
       }
     });
-    
+  }
+
+  $('#fileupload').fileupload({
+    dataType: 'json',
+    beforeSend: function(){
+      $(".gallery").append("<span class='image-placeholder'>Loading...</span>")
+    },
+    done: function (e, data) {
+      res = data.result
+      $(".image-placeholder").last().remove();
+      $( ".gallery" ).append( res.html );
+      $(".remove_picture").off("click", remove_picture);
+      $(".remove_picture").on("click", remove_picture);
+    }
   });
+
+  $(".remove_picture").on("click", remove_picture);
+
 
 });

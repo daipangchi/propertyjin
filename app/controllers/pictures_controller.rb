@@ -6,6 +6,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new
     @picture.picture = params[:picture][:uploaded_file]
     @picture.imageable = parent
+    return render json: {success: false} if parent.user != current_user
     if @picture.save
       render json: {success: true, html: render_to_string(@picture)}
     else
@@ -15,6 +16,7 @@ class PicturesController < ApplicationController
 
   # DELETE /pictures/1
   def destroy
+    return render json: {success: false} if parent.user != current_user
     @picture.destroy
     render json: {success: true}
   end
