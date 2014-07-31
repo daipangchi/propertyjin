@@ -1,0 +1,34 @@
+.gallery-wrapper {
+  margin:10px 0px;
+  width: 100%;
+}
+
+.gallery {
+  background-color: #eee;
+  padding: 3px;
+  border: 1px solid #aaa;
+
+  a:hover {
+    background-color: transparent;
+  }
+
+  .fancybox img{
+    max-width: 140px;
+    max-height: 140px;
+  }
+
+  .image-placeholder{
+    width: 140px;
+    height: 140px;
+  }
+
+  .remove_picture{
+    margin-left: -5px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+}
+
+.fancybox-wrap a:hover{
+  background-color: transparent;
+}
