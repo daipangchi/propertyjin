@@ -9,7 +9,7 @@
   <%= f.error_notification %>
 
   <fieldset>
-    <%= f.association :phone, label: "Phone", label_method: :name %>
+    <%= f.association :phone, label: "Phone", label_method: :name, collection: Phone.all.order(:created_at) %>
     <%= f.input :condition, label: "Condition (of 10)" %>
     <%= f.input :date %>
     <%= f.input :imei, label: "IMEI" %>
