@@ -12,9 +12,14 @@ header {
   }
 }
 
-a:hover{
-  text-decoration: none;
-  background-color: rgb(86,152,150) !important;
+a {
+  padding-left:2px;
+  padding-right:2px;
+
+  &:hover{
+    text-decoration: none;
+    background-color: rgb(86,152,150) !important;
+  }
 }
 
 #content {
