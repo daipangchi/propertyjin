@@ -9,7 +9,7 @@
   border: 1px solid #aaa;
 
   a:hover {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 
   .fancybox img{
@@ -30,5 +30,5 @@
 }
 
 .fancybox-wrap a:hover{
-  background-color: transparent;
+  background-color: transparent !important;
 }
