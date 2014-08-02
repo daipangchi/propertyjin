@@ -1,5 +1,6 @@
 class PhonesController < ApplicationController
   before_action :set_phone, only: [:show, :edit, :update, :destroy]
+  before_action :check_auth, only: [:edit, :update, :destroy, :create, :new]
 
   # GET /phones
   def index
@@ -46,6 +47,10 @@ class PhonesController < ApplicationController
   end
 
   private
+    def check_auth
+      return redirect_to phones_path, notice: "You have no rights to do it" unless current_user.present?
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_phone
       @phone = Phone.find(params[:id])

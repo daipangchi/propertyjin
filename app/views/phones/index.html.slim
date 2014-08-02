@@ -1,0 +1,13 @@
+h3 Phones
+
+#phones_list
+  input.search placeholder="Search"
+
+  ul.list
+    - for phone in @phones
+      li
+        p.name = link_to phone.name, phone
+
+br
+
+= link_to 'New Phone', new_phone_path if current_user 

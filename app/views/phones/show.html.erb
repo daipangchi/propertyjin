@@ -44,5 +44,7 @@
   <%= @phone.notes %>
 </p>
 
-<%= link_to 'Add to collection', new_user_users_phones_path(user_id: current_user.id, phone_id: @phone.id) if signed_in? %><br><br>
-<%= link_to 'Edit', edit_phone_path(@phone) %>
+<% if signed_in? %>
+  <%= link_to 'Add to collection', new_user_users_phones_path(user_id: current_user.id, phone_id: @phone.id) %><br><br>
+  <%= link_to 'Edit', edit_phone_path(@phone) %>
+<% end %>

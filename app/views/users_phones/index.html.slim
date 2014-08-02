@@ -1,0 +1,26 @@
+= link_to "< back to collections list", collections_list_users_path
+br
+br
+
+h3 Collection of #{@user.email}
+
+table#user_phones_list
+  thead
+    tr
+      th.sort data-sort="phone" Phone
+      th.sort data-sort="condition" Condition
+      th.sort data-sort="type" Type
+      th.sort data-sort="selling" Selling
+      th colspan="2"
+        input.search type="text" placeholder="Search phone"
+
+  tbody.list
+    - for users_phone in @users_phones
+      tr
+        td.phone = link_to users_phone.phone.name, user_users_phone_path(@user, users_phone)
+        td.condition = users_phone.condition
+        td.type = users_phone.phone_type
+        td.selling = users_phone.selling
+br
+
+= link_to 'New Users phone', new_user_users_phones_path(current_user) if @user==current_user
