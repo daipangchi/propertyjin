@@ -36,6 +36,8 @@ gem 'friendly_id', '~> 5.0.0'
 gem "paperclip", "~> 4.1"
 gem 'jquery-fileupload-rails'
 
+gem 'annotate', ">=2.6.0"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -43,7 +45,6 @@ end
 
 group :development do
   gem 'mina'
-  gem 'annotate', ">=2.6.0"
 end
 
 group :production do
