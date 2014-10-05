@@ -74,7 +74,6 @@ task :deploy => :environment do
     invoke 'bundle:install'
     invoke 'deploy:link_shared_paths'
     invoke 'rails:db_migrate'
-    queue! 'bundle exec rake assets:clean'
     invoke 'rails:assets_precompile'
 
     to :launch do
