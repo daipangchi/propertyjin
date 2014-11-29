@@ -32,6 +32,17 @@ gem 'jquery-rails'
 gem 'simple_form', '~>3.1.0.rc1'
 # Uploading form
 gem 'jquery-fileupload-rails'
+# Angular templates
+gem 'angular-rails-templates'
+# csrf token fix
+gem 'angular_rails_csrf'
+# A resource factory
+gem 'angularjs-rails-resource', '~> 1.1.1'
+
+# ==== JSON responses ====
+
+# JSON builder
+gem "active_model_serializers"
 
 # ==== Auth =====
 
@@ -58,8 +69,7 @@ end
 
 group :production do
   # Server
-  # TODO: Switch to puma
-  gem 'unicorn', '4.8.2'
+  gem 'puma'
 end
 
 group :development, :test do
