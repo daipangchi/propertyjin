@@ -11,14 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.fancybox.pack
-//= require jquery-fileupload/vendor/jquery.ui.widget
-//= require jquery-fileupload/jquery.iframe-transport
-//= require jquery-fileupload/jquery.fileupload
-//= require list.min
 //= require custom
 //= require bootstrap.min
-//= require turbolinks
-//= require_tree .
+//= require lib/angular.min
+//= require lib/angular-resource.min
+//= require lib/angular-ui-router.min
+//= require lib/devise
+//= require angularjs/rails/resource
+//= require angularjs-file-upload
+//= require angular-rails-templates
+//= require_tree ../templates
+//= require_tree ./angular

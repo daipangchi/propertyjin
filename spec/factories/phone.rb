@@ -17,10 +17,17 @@
 #  year       :integer
 #
 
-require 'test_helper'
-
-class PhoneTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+FactoryGirl.define do
+  factory :phone, :class => 'Phone' do
+    sequence(:name) { |n| "siemens C#{n*5}" }
+    network "GSM"
+    features "Bluetooth"
+    weight "95g"
+    size "10x20x5"
+    akkum "Li-ion"
+    limited false
+    notes "Notes"
+    photo_url nil
+    year { rand(1990..2006) }
+  end
 end

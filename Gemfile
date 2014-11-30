@@ -9,11 +9,6 @@ gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
-# ==== Data structures ====
-
-# Add slug to models and use it
-gem 'friendly_id', '~> 5.0.0'
-
 # ==== Assets/Frontend ====
 
 # Use SCSS for stylesheets
@@ -38,6 +33,8 @@ gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
 # A resource factory
 gem 'angularjs-rails-resource', '~> 1.1.1'
+# Guess what :D
+gem 'angularjs-file-upload-rails', '~> 1.1.5', github: "Marthyn/angularjs-file-upload-rails"
 
 # ==== JSON responses ====
 
@@ -61,8 +58,6 @@ group :doc do
 end
 
 group :development do
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   # Deployment
   gem 'mina'
 end
@@ -73,13 +68,10 @@ group :production do
 end
 
 group :development, :test do
-  gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'capybara'
-  gem 'timecop'
 end
 
 # Use debugger

@@ -1,0 +1,25 @@
+doctype html
+html ng-app="siemenscollection"
+  head
+    base href="/"
+    title Siemens Collection
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  body
+    header
+      div.left
+        h4.left
+          a ui-sref='phones.list' 
+            | Siemens Collection
+        div.menu.left
+          a ui-sref='users_phones.list'
+            | collections list
+      div.right
+        - if signed_in?
+          = current_user.email
+          | ||
+          = link_to "Sign out", destroy_user_session_path, method: :delete
+        - else
+          = link_to "Sign in", new_user_session_path
+
+    div#content[ui-view]

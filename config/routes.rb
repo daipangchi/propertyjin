@@ -6,23 +6,38 @@ Rails.application.routes.draw do
 
   # get 'users/:user_id/phones' => 'users_phones#index', as: :user_phones
 
-  resources :phones
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :phones, only: [:index, :show]
+    end
+  end
 
   devise_for :users
 
-  resources :users, only: :none do
-    get 'collections' => 'users_phones#collections_list', on: :collection, as: :collections_list
-    resources :users_phones, except: [:new], path: "phones" do
-      get 'new/(:phone_id)' => 'users_phones#new', on: :collection, as: :new
-      resources :pictures, only: [:create, :destroy]
-    end
-  end
+  root 'home#angular', as: :root
+
+  get '/*path' => 'home#angular'
+
+
+  # All routes from the list below isn't working now
+
+  # resources :phones
+
+  # devise_for :users
+
+  # resources :users, only: :none do
+  #   get 'collections' => 'users_phones#collections_list', on: :collection, as: :collections_list
+  #   resources :users_phones, except: [:new], path: "phones" do
+  #     get 'new/(:phone_id)' => 'users_phones#new', on: :collection, as: :new
+  #     resources :pictures, only: [:create, :destroy]
+  #   end
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'phones#index'
+  # root 'phones#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

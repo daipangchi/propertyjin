@@ -3,7 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'capybara/rspec'
+# require 'capybara/rspec'
 require 'factory_girl_rails'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -25,6 +25,8 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, type: :controller
 
+  config.include JsonApiHelpers, type: :controller
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
@@ -43,8 +45,8 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
+    # Capybara.reset_sessions!
+    # Capybara.use_default_driver
   end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
