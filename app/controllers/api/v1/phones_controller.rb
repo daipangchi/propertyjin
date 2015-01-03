@@ -3,7 +3,7 @@ module Api::V1
     before_filter :set_phone, only: [:show, :update, :destroy]
 
     def index
-      render json: Phone.all
+      render json: Phone.all, each_serializer: PhonesListSerializer
     end
 
     def show
