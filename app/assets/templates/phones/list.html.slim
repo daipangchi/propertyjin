@@ -10,8 +10,6 @@ h3 Phones
   div ng-if="loading"
     |Loading data.. please wait!
 
-  div ng-bind="phones"
-  
   ul.list
     li ng-repeat="phone in phones" ng-if="phones.length>0"
       p.name
