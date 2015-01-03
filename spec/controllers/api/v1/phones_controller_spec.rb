@@ -12,7 +12,8 @@ describe Api::V1::PhonesController do
   let!(:phone1) { FactoryGirl.create(:phone) }
   let!(:phone2) { FactoryGirl.create(:phone) }
 
-  let(:index_hash_keys) { ["id", "name", "network", "features", "weight", "size", "akkum", "limited", "notes", "photo_url"] }
+  let(:index_hash_keys) { ["id", "name"] }
+  let(:show_hash_keys) { ["id", "name", "network", "features", "weight", "size", "akkum", "limited", "notes", "photo_url"] }
 
   describe "#index" do
 
@@ -27,5 +28,12 @@ describe Api::V1::PhonesController do
       expect(json_response['phones'].first.keys).to eq index_hash_keys
     end
 
+  end
+
+  describe "#show" do
+    it "should return right json" do
+      json_get :show, id: phone1.id
+      expect(json_response.keys).to eq show_hash_keys
+    end
   end
 end
