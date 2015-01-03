@@ -18,7 +18,6 @@
 //= require lib/angular.min
 //= require lib/angular-resource.min
 //= require lib/angular-ui-router.min
-//= require lib/devise
 //= require angularjs/rails/resource
 //= require angularjs-file-upload
 //= require angular-rails-templates

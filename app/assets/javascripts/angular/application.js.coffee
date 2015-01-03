@@ -1,8 +1,8 @@
-@application = angular.module('siemenscollection', ['rails', 'ngResource', 'templates', 'ui.router', 'Devise', 'angularFileUpload'])
+@application = angular.module('siemenscollection', ['rails', 'ngResource', 'templates', 'ui.router', 'angularFileUpload'])
 
 @application.config(['$locationProvider', '$httpProvider','$stateProvider','$urlRouterProvider', ($locationProvider, $httpProvider, $stateProvider, $urlRouterProvider) ->
 
-  $httpProvider.interceptors.push(($q) ->
+  $httpProvider.interceptors.push(['$q', ($q) ->
     'response': (response) ->
       response
     ,
@@ -18,7 +18,7 @@
         alert("Server not responding. Try again later.")
         return
       $q.reject(rejection)
-  )
+  ])
 
   $urlRouterProvider.otherwise("/")
 
