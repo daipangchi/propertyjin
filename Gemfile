@@ -53,14 +53,6 @@ gem "paperclip", "~> 4.1"
 # Store bd structure in model's file
 gem 'annotate', ">=2.6.0"
 
-group :doc do
-  gem 'sdoc', require: false
-end
-
-group :development do
-  # Deployment
-  gem 'mina'
-end
 
 group :production do
   # Server
@@ -68,6 +60,11 @@ group :production do
 end
 
 group :development, :test do
+  # Deployment
+  gem 'mina'
+  # Tasks for mina
+  gem 'mina-puma', :require => false
+
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'

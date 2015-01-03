@@ -2,6 +2,7 @@ require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rvm'
+require 'mina/puma'
 
 set :rails_env, 'production'
 set :domain, '188.226.216.228'
@@ -26,43 +27,12 @@ task :setup do
   queue! %{
 mkdir -p "#{deploy_to}/shared/tmp/pids"
 }
-end
-
-# Unicorn
-# ==============================================================================
-namespace :unicorn do
-  set :unicorn_pid, "#{app_path}/tmp/pids/unicorn.pid"
-  set :start_unicorn, %{
-cd #{app_path}
-bundle exec unicorn -c #{app_path}/config/unicorn.rb -E production -D
+  queue! %{
+mkdir -p "#{deploy_to}/shared/tmp/sockets"
 }
-
-# Start task
-# ------------------------------------------------------------------------------
-  desc "Start unicorn"
-  task :start => :environment do
-    queue 'echo "-----> Start Unicorn"'
-    queue! start_unicorn
-  end
-
-# Stop task
-# ------------------------------------------------------------------------------
-  desc "Stop unicorn"
-  task :stop do
-    queue 'echo "-----> Stop Unicorn"'
-    queue! %{
-test -s "#{unicorn_pid}" && kill -QUIT `cat "#{unicorn_pid}"` && echo "Stop Ok" && exit 0
-echo >&2 "Not running"
+  queue! %{
+mkdir -p "#{deploy_to}/shared/config"
 }
-  end
-
-# Restart task
-# ------------------------------------------------------------------------------
-  desc "Restart unicorn using 'upgrade'"
-  task :restart => :environment do
-    invoke 'unicorn:stop'
-    invoke 'unicorn:start'
-  end
 end
 
 # Deploy task
@@ -77,7 +47,7 @@ task :deploy => :environment do
     invoke 'rails:assets_precompile'
 
     to :launch do
-      invoke :'unicorn:restart'
+      invoke :'puma:restart'
     end
   end
 end
