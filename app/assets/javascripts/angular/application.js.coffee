@@ -34,6 +34,11 @@
       templateUrl: "phones/list.html",
       controller: "phones_list"
     })
+    .state('phones.show', {
+      url: "phones/:id",
+      templateUrl: "phones/show.html",
+      controller: "phones_show"
+    })
 
   $locationProvider.html5Mode(true)
 ])

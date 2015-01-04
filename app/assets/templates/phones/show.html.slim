@@ -1,0 +1,46 @@
+a [ui-sref="phones.list"] Back to phones list
+
+h3
+  |{{phone.name}}
+  a ui-sref="phones.edit" 
+    span class="glyphicon glyphicon-edit"
+
+img [ng-src="{{phone.photoUrl}}" class="phone_image"]
+
+p
+  strong
+    |Network:
+  |{{phone.network}}
+
+p
+  strong
+    |Features:
+  |{{phone.features}}
+
+p
+  strong
+    |Weight:
+  |{{phone.weight}}
+
+p
+  strong
+    |Size:
+  |{{phone.size}}
+
+p
+  strong
+    |Akkum:
+  |{{phone.akkum}}
+
+p
+  strong
+    |Limited:
+  |{{phone.limited}}
+
+p
+  strong
+    |Notes:
+  |{{phone.notes}}
+
+a ui-sref="phones.add_to_collection"
+  |Add to collection

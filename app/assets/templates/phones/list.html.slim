@@ -13,6 +13,7 @@ h3 Phones
   ul.list
     li ng-repeat="phone in phones" ng-if="phones.length>0"
       p.name
-        |{{phone.name}}
+        a ui-sref="phones.show({id: phone.id})"
+          |{{phone.name}}
 
 br
